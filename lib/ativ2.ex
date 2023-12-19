@@ -1,3 +1,5 @@
+require Integer 
+
 defmodule Ativ2 do
   @moduledoc """
   Atividade 2 da disciplina Programação Funcional - 2023.2
@@ -11,32 +13,32 @@ defmodule Ativ2 do
 
     @doc "Multiplica o numero passado como parametro por 5."
     def mult5(x) do
-      nil
+      5 * x
     end
 
     @doc "Calcula o quadrado do numero x"
     def quadrado(x) do
-      nil
+      x * x
     end
 
     @doc "Calcula a soma dos quadrados de x e y: x ao quadrado + y ao quadrado."
     def soma_quadrados(x, y) do
-      nil
+      quadrado(x) + quadrado(y)
     end
 
     @doc "Concatena as duas strings a e b."
     def concat(a, b) do
-      nil
+      a <> b 
     end
 
     @doc "Efetua a negacao logica (NOT) do booleano a."
     def negacao(a) do
-      nil
+      !a
     end
 
     @doc "Efetua o E-logico (AND) dos dois booleanos a e b."
     def e_logico(a, b) do
-      nil
+      a && b
     end
 
     @doc """
@@ -53,8 +55,18 @@ defmodule Ativ2 do
     "    teste   "
     """
     def centraliza(str, largura) do
-      nil
+      # Tamanho da string
+      tamanho = String.length(str)
+
+      # Numero de espacos diisponiveis para a centralizacao
+      num_espacos = largura - tamanho
+
+      # Se num_espacos for par terá quantidades iguais de espaço na esq e na dir
+      # Se num_espacos for ímpar o lado esquerdo = lado direito + 1
+
+      espaco_direita = Integer.floor_div(num_espacos, 2)
+      espaco_esquerda = espaco_direita + rem(num_espacos, 2)
+      concat(concat(String.duplicate(" ", espacosEsquerda), str), String.duplicate(" ", espacosDireita))
+      
     end
-    # Dica: olhe a documentação para String.duplicate
-    # A função Integer.floor_div também pode ser útil
 end
